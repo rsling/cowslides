@@ -1,0 +1,46 @@
+\subsection{Arbeitsschwerpunkte}
+
+\begin{frame}
+	{Technologie COW14\slash COW16}
+
+	\begin{itemize}
+	  \item texrex-behindthecow: 25.000 Zeilen Webpage-Cleaner
+	  \item diverse Normalisierungstools (Eigenentwicklungen)
+	  \item satzweise Sprachfilterung mit LangID.py + Heuristik
+	  \item Annotation mit TreeTagger, FreeLing, Mate, Marmot, MaltParser, Stanford NER, Berkeley Parser\\
+	    mit topologischem Modell von Cheung \& Penn (2009) usw.
+	  \item Nachverarbeitungsketten standardisiert
+
+	  \vspace{0.5cm}
+	   
+	  \item Und vor allem: Unmögliches ist möglich dank\\
+		massiver Parallelisierung auf HPC der FU Berlin.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	{Ausführlich zur Methode}
+	\centering
+	\includegraphics[height=0.7\textheight]{graphics/wcc}
+\end{frame}
+
+\begin{frame}
+  {COW14A-Fakten}
+  \begin{center}
+    \begin{tabular}[h]{lrrr}
+      \hline
+            & G tokens & M sentences & M documents \\
+      \hline
+      \hline
+      DE & 20.5 & 807 & 17.1 \\
+      EN & 16.8 & 608 & 9.2 \\
+      ES & 7.3 & &      5.0 \\
+      NL & 6.8 & 312 &  5.0 \\
+      FR & 11  & 329 &  6.9 \\
+      SV & 8.6 & 406 &  6.4 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+

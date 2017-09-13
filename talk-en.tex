@@ -1,0 +1,152 @@
+\documentclass{beamer}
+%\documentclass[handout]{beamer}
+
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{multirow}
+\usepackage{nicefrac}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage{gb4e-}
+\usepackage{pifont}
+\usepackage{bbding}
+\usepackage{tree-dvips}
+
+\title[Working with Web Corpora]{\Large Working with Web Corpora}
+\author[Felix Bildhauer and Roland Schäfer]{\Large Felix Bildhauer, Roland Schäfer}
+\institute{IDS Mannheim, FU Berlin}
+\date{GaC 2016 pre-conference tutorial, \today}
+
+\usetheme{FUBerlin}
+\definecolor{beamer@fuorange}{rgb}{.8,.3,0}
+\definecolor{Gray}{gray}{0.5}
+\definecolor{Black}{gray}{0}
+\definecolor{Orinj}{rgb}{0.9,0.4,0.1}
+\definecolor{Greene}{rgb}{0,0.5,0}
+\setbeamercolor{alerted text}{fg=Orinj}
+\newcommand{\orinj}[1]{\textcolor{Orinj}{#1}}
+\newcommand{\greene}[1]{\textcolor{Greene}{#1}}
+\newcommand{\graw}[1]{{\color[rgb]{0.5,0.5,0.5}#1}}
+\newcommand{\blaw}[1]{{\color[rgb]{0.2,0.2,0.9}#1}}
+\newcommand{\grien}[1]{{\color[rgb]{0.1,0.6,0.1}#1}}
+\newcommand{\myalert}[2]{{\color<#1>[rgb]{0,0.7,0}#2}}
+\newcommand{\eg}{e.\,g.}
+\newcommand{\Eg}{E.\,g.}
+\newcommand{\ie}{i.\,e.}
+\newcommand{\Ie}{I.\,e.}
+\newcommand{\Dim}{\cellcolor{Gray}}
+\newcommand{\Off}{\cellcolor{Black}}
+
+\titlegraphic{}
+\fuberlinlogon{0.8cm}
+\renewcommand{\fuberlinfootstring}{\insertshortauthor{} \number\year, \insertshortinstitute}
+
+\setcounter{tocdepth}{1}
+
+%\AtBeginSection[]
+%{
+%  \begin{frame}
+%    \frametitle{We are here\dots}
+%      \begin{multicols}{2}
+%         \footnotesize
+%         \tableofcontents[currentsection]
+%      \end{multicols}
+%   \end{frame}
+%}
+
+\newcommand{\xxx}{\hspaceThis{[}}
+\newcommand{\Lf}{
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+\newcounter{lastpagemainpart}
+
+\begin{document}
+
+\fuberlintitlepage
+
+
+\section{Webcorpora 2005--2015}
+
+\include{include/webcorphistory_en}
+
+\section{Web corpus construction}
+
+\include{webcorpora}
+
+\section{COW14, COW16, and COCO15}
+
+\include{include/cowschwerpunkte_en}
+\include{include/qsbasic_en}
+\include{include/qszusammensetzung_en}
+\include{include/cowcat_en}
+\include{include/distsem_en}
+%\include{include/coco}
+
+
+\section{Recent developments}
+
+%\include{include/clarax}
+%\include{include/coreko_en}
+
+
+%\section{Anwendungen von COW Korpora}
+%
+%\include{include/cowpub}
+%\include{include/spanisch}
+%\include{include/obweil}
+%\include{include/schwache}
+%\include{include/massangabe}
+%
+%
+\section{Zugriff auf COW}
+
+\include{include/zugriff}
+
+% --------------- REFS + APPENDIX
+
+\begin{frame}
+  {Zusammenfassung und Ausblick}
+  Wir liefern\dots\\
+  \begin{itemize}
+    \item \alert{große Webkorpora}
+    \item rechtssichere \alert{Umgehung des Urheberrechts}
+    \item \alert{Nachverarbeitung} auf dem Stand der Technik
+    \item bald \alert{verzerrungsfreie Referenzkorpora}
+    \item Grundlagenforschung zur \alert{Webkorpuszusammensetzung}
+    \item \alert{Dokumentklassifikation} ohne konzeptuellen Ballast\\
+      zugunsten der Zuverlässigkeit bzw.\ der Operationalisierung
+  \end{itemize}
+\end{frame}
+
+%\begin{frame}[allowframebreaks]
+%  {References}
+%  \def\newblock{\hskip .11em plus .33em minus .07em}
+%  \tiny
+%  \bibliographystyle{abbrvnat} 
+%  \bibliography{cow,felix}
+%\end{frame}
+
+\makeatletter
+\setcounter{lastpagemainpart}{\the\c@framenumber}
+\makeatother
+
+%\appendix
+%
+%\section{Appendix}
+
+\mode<beamer>{\setcounter{framenumber}{\thelastpagemainpart}}
+
+\end{document}
+ 

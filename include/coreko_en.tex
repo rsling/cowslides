@@ -1,0 +1,138 @@
+\subsection{Document classification (FU/DFG + IDS Grammatik)}
+
+\begin{frame}
+  {Goals of the classification}
+  \begin{itemize}
+    \item development of a data-driven approach
+    \item taxonomy must be learnable well by automatic classifier\\
+      (\alert{not} like Biber & Egbert 2016)
+    \item large scale assessment of composition of web corpora,\\
+      comparison DeReKo vs.\ DECOW
+    \item generation of linguistically interpretable meta data
+    \item two parts of the COReXiKO framework:\\
+      \alert{class.\ by grammatical features} (COReX),\\
+      \alert{class.\ by lexical distributions} (topic modeling: COReKo)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {COReKo method}
+  \begin{itemize}
+    \item intended COWCat classification by \alert{topic domain}
+    \item 20 categories (politics, sports, arts, etc.)
+    \item two gold standards for DECOW and DeReKo 
+    \item first step: \alert{topic modeling} (LSI, LDA)\\
+      generates topic-document matrices (TDM)
+    \item second step: \alert{supervised classification}\\
+      of topic domains learned from TDM
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Experiment COReKo 1}
+  \begin{itemize}
+    \item gold standard: ca.\ 800 documents from DECOW, DeReKo each
+    \item topic modeling: GenSim (LSI. LDA)
+    \item topic domain classifier: SVM
+    \item diverse different processing options\\
+      (usually best lemma+POS, use only content words)
+    \item 20--90 topics
+    \item incremental mix-in of non-gold standard document for topic modeling to increase stability of the topics
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Results COReKo 1}
+  Accuracy (10CV) DECOW\\
+  \centering
+  \vspace{0.5cm}
+  \includegraphics[width=0.8\textwidth]{graphics/cow}
+\end{frame}
+
+\begin{frame}
+  {Results COReKo 1}
+  Accuracy (10CV) DeReKo\\
+  \centering
+  \vspace{0.5cm}
+  \includegraphics[width=0.8\textwidth]{graphics/dereko}
+\end{frame}
+
+\begin{frame}
+  {Results COReKo 1}
+  Accuracy (10CV) \alert{DECOW + DeReKo}\\
+  \centering
+  \vspace{0.5cm}
+  \includegraphics[width=0.8\textwidth]{graphics/coreko}
+\end{frame}
+
+\begin{frame}
+  {Reasons for moderate quality}
+  \centering
+  \scalebox{0.55}{\begin{tabular}{|llcccccccc|}
+    \hline
+    %\multicolumn{2}{|c}{\textbf{COW}} & \multicolumn{8}{c|}{\textbf{Classified}} \\
+    \multicolumn{2}{|c}{\textbf{Web}} & \multicolumn{8}{c|}{\textbf{Classified}} \\
+     && \rot{\textbf{PolSoc~}} & \rot{\textbf{Busi}} & \rot{\textbf{Life}} & \rot{\textbf{Arts}} & \rot{\textbf{Public~}} & \rot{\textbf{Law}} & \rot{\textbf{Beliefs~}} & \rot{\textbf{Hist}} \\
+   \hline
+   \multirow{8}{*}{\rot{\textbf{Annotated}}} & \textbf{PolSoc}  & \textbf{26} &  12 &  10 &   1 &   1 &   0 &   1 &   0 \\ 
+     & \textbf{Busi}    &  5 & \textbf{105} &  40 &   7 &   1 &   2 &   1 &   1 \\ 
+     & \textbf{Life}    &  3 &  14 & \textbf{286} &   6 &   4 &   1 &   1 &   1 \\ 
+     & \textbf{Arts}    &  3 &   2 &  36 &  \textbf{78} &   1 &   0 &   2 &   6 \\ 
+     & \textbf{Public}  &  0 &   3 &  11 &   0 &   \textbf{9} &   1 &   0 &   0 \\ 
+     & \textbf{Law}     &  3 &   9 &   8 &   0 &   1 &   \textbf{8} &   0 &   0 \\ 
+     & \textbf{Beliefs} &  4 &   3 &  11 &   6 &   1 &   0 &  \textbf{30} &   1 \\ 
+     & \textbf{Hist}    &  9 &   0 &   9 &   7 &   1 &   1 &   2 &  \textbf{15} \\ 
+     \hline
+   \end{tabular}}
+\end{frame}
+ 
+\begin{frame}
+  {Reasons for moderate quality}
+  \centering
+ \scalebox{0.55}{\begin{tabular}{|llcccccc|}
+    \hline
+     %\multicolumn{2}{|c}{\textbf{DeReKo}} & \multicolumn{6}{c|}{\textbf{Classified}} \\
+     \multicolumn{2}{|c}{\textbf{News}} & \multicolumn{6}{c|}{\textbf{Classified}} \\
+     && \rot{\textbf{PolSoc~}} & \rot{\textbf{Busi}} & \rot{\textbf{Life}} & \rot{\textbf{Indiv}} & \rot{\textbf{Arts}} & \rot{\textbf{Public}} \\
+    \hline
+     \multirow{6}{*}{\rot{\textbf{Annotated}}}& \textbf{PolSoc}  & 223 & 6 & 39 &  0 &  0 &  8 \\
+     & \textbf{Busi}    &  20 & 24 &   9 &  0 &  0 &  0 \\
+     & \textbf{Life}    &  24 &  1 & 324 &  0 &  0 &  1 \\
+     & \textbf{Indiv}   &   5 &  0 &  17 &  0 &  0 &  1 \\
+     & \textbf{Arts}    &   2 &  0 &  28 &  0 &  6 &  0 \\
+     & \textbf{Public}  &  35 &  0 &  30 &  0 &  0 & 34 \\
+    \hline
+  \end{tabular}}
+\end{frame}
+ 
+\begin{frame}
+  {Reasons for moderate quality}
+  \centering
+\scalebox{0.55}{\begin{tabular}{|llccccccccc|}
+    \hline
+     \multicolumn{2}{|c}{\textbf{Pooled}} & \multicolumn{9}{c|}{\textbf{Classified}} \\
+     && \rot{\textbf{PolSoc~}} & \rot{\textbf{Busi}} & \rot{\textbf{Med~}} & \rot{\textbf{Life}} & \rot{\textbf{Arts}} & \rot{\textbf{Public~}} & \rot{\textbf{Law}} & \rot{\textbf{Beliefs~}} & \rot{\textbf{Hist}} \\
+    \hline
+    \multirow{9}{*}{\rot{\textbf{Annotated}}} & \textbf{PolSoc}   & \textbf{199} &   7 &   0 & 109 &   0 &  12 &   0 &   0 &   0 \\ 
+    & \textbf{Busi}     &  18 &  \textbf{23} &   0 & 172 &   0 &   2 &   0 &   0 &   0 \\ 
+    & \textbf{Med}  &   6 &   0 &   \textbf{0} &  29 &   0 &   1 &   0 &   0 &   0 \\ 
+    & \textbf{Life}     &  25 &   4 &   0 & \textbf{632} &   0 &   5 &   0 &   0 &   0 \\ 
+    & \textbf{Arts}     &   2 &   2 &   0 & 160 &   \textbf{0} &   0 &   0 &   0 &   0 \\ 
+    & \textbf{Public}   &  46 &   2 &   0 &  56 &   0 &  \textbf{19} &   0 &   0 &   0 \\ 
+    & \textbf{Law}      &   8 &   0 &   0 &  31 &   0 &   0 &   \textbf{0} &   0 &   0 \\ 
+    & \textbf{Beliefs}  &   0 &   0 &   0 &  59 &   0 &   0 &   0 &   \textbf{0} &   0 \\ 
+    & \textbf{Hist}     &   4 &   0 &   0 &  50 &   0 &   0 &   0 &   0 &   \textbf{0} \\ 
+    \hline
+ \end{tabular}}
+\end{frame}
+
+\begin{frame}
+  {CoReKO 2}
+  \begin{itemize}
+    \item larger gold standards (4000 documents each)
+    \item improved classification scheme
+    \item allow gradual multi-assignment
+    \item allow virtually unclassified documents
+    \item also: raw topic distributions as meta data
+  \end{itemize}
+\end{frame}
